@@ -1,0 +1,33 @@
+name: Build and push Docker image to Ucloud and deploy to Product server
+
+on:
+  push:
+    branches:
+      - master
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: build-dist
+        run: |
+          export PATH="$(yarn global bin):$PATH"
+          /home/ubuntu/.yarn/bin/vuepress build -d ./dist
+
+  build-and-push:
+    name: build-and-push
+    needs: run-script
+    uses: unnoo/actions-template/.github/workflows/master.yaml@master
+    secrets: inherit
+    with:
+      service_name: starry-www
+      namespace: default
+      deploy_script: |
+        echo 0
+        # kubectl set image deployment stats-counter-zsxq --record=true app=uhub.service.ucloud.cn/unnoo/starry-www:$SHORT_SHA
+

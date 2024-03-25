@@ -1,2 +1,2 @@
-# -starry.sg
+# starry.sg
  starry.sg website
