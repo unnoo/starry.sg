@@ -15,13 +15,7 @@ module.exports = {
     },
     sidebar: [
       '/',
-      {
-        title: 'About',
-        collapsable: false,
-        children: [
-          ['/about/index','About Starry'],
-        ]
-      },
+      ['/about/index','About Starry'],
     ]
   }
 }
