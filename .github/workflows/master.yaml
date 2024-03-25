@@ -9,23 +9,8 @@ permissions:
   actions: read
 
 jobs:
-  run-script:
-    runs-on: self-hosted
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 10
-      - name: build-dist
-        run: |
-          export PATH="$(yarn global bin):$PATH"
-          yarn config set global-folder /usr/local/share/yarn-global
-          yarn config set cache-folder /usr/local/share/yarn-cache
-          /home/ubuntu/.yarn/bin/vuepress build -d ./dist
-
   build-and-push:
     name: build-and-push
-    needs: run-script
     uses: unnoo/actions-template/.github/workflows/master.yaml@master
     secrets: inherit
     with:
