@@ -19,6 +19,8 @@ jobs:
       - name: build-dist
         run: |
           export PATH="$(yarn global bin):$PATH"
+          yarn config set global-folder /usr/local/share/yarn-global
+          yarn config set cache-folder /usr/local/share/yarn-cache
           /home/ubuntu/.yarn/bin/vuepress build -d ./dist
 
   build-and-push:
