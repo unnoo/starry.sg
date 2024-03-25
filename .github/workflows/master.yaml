@@ -16,8 +16,8 @@ jobs:
         uses: actions/checkout@v4
       - name: build-dist
         run: |
-          export PATH="$(yarn global bin):$PATH"
-          /home/ubuntu/.yarn/bin/vuepress build -d ./dist
+          sudo -u jenkins export PATH="$(yarn global bin):$PATH"
+          sudo -u jenkins /home/ubuntu/.yarn/bin/vuepress build -d ./dist
 
   build-and-push:
     name: build-and-push
