@@ -18,8 +18,8 @@ jobs:
           fetch-depth: 10
       - name: build-dist
         run: |
-          chmod -R 777 .
-          sudo -u jenkins env PATH="$(yarn global bin):$PATH" /home/ubuntu/.yarn/bin/vuepress build -d ./dist
+          export PATH="$(yarn global bin):$PATH"
+          /home/ubuntu/.yarn/bin/vuepress build -d ./dist
 
   build-and-push:
     name: build-and-push
