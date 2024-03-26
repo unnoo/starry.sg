@@ -15,7 +15,7 @@ module.exports = {
     },
     sidebar: [
       '/',
-      ['/about/index', 'About'],
+      ['/about/about', 'About'],
     ]
   }
 }
