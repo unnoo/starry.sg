@@ -14,7 +14,8 @@ module.exports = {
       toc: { includeLevel: [2, 3] },  // MarkDown 文档中，用 [[toc]] 标签建立目录时，收集哪几级标题
     },
     sidebar: [
-      '/'
+      '/',
+      ['/about/index', 'About'],
     ]
   }
 }
