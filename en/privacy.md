@@ -10,8 +10,6 @@ Before using our products, services or submitting any personal information to us
 
 When you contact us (for example, when you fill out our contact form or subscribe to newsletters), you may be asked to provide your personal information. You are not obligated to provide the information we request, but choosing not to do so may prevent us from providing products or services to you, or responding to your inquiries.
 
-## User data for Starry app
-
 ## How we use your personal information
 
 We collect and process all your personal data in accordance with relevant data protection regulations, especially the General Data Protection Regulation (GDPR). We may use the collected personal information in the process of creating, developing, improving our products and services, as outlined below:
