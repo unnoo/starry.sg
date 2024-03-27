@@ -5,8 +5,8 @@ module.exports = {
     logo: '/assets/img/logo.png',
     sidebarDepth: 0,
     nav: [
+      { text: 'About Us', link: '/' },
       { text: 'Privacy', link: '/privacy' },
-      { text: 'Starry', link: 'https://starry.sg' },
     ],
     markdown: {
       lineNumbers: true,              // 让代码块显示行号
