@@ -10,13 +10,61 @@ permissions:
 
 jobs:
   build-and-push:
-    name: build-and-push
-    uses: unnoo/actions-template/.github/workflows/master.yaml@master
-    secrets: inherit
-    with:
-      service_name: starry-www
-      namespace: default
-      deploy_script: |
-        kubectl set image deployment starry-sg nginx=uhub.service.ucloud.cn/unnoo/starry-www:$SHORT_SHA
-        kubectl annotate deployment starry-sg kubernetes.io/change-cause="Rolling update to $SHORT_SHA" --overwrite
+    runs-on: self-hosted
+    continue-on-error: true
+    steps:
+    - name: Extract Repository Name
+      id: extract
+      run: |
+        echo "REPO_NAME=$(basename "${{ github.repository }}")" >> $GITHUB_ENV
 
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Configure git for private modules
+      env:
+        TOKEN: ${{ secrets.CI_ACCESS_TOKEN }}
+      run: git config --global url."https://jenkins-unnoo:${TOKEN}@github.com".insteadOf "https://github.com"
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    # This step logs in to GitHub Container Registry
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: uhub.service.ucloud.cn
+        username: ${{ secrets.UCLOUD_ACCOUNT }}
+        password: ${{ secrets.UCLOUD_PASSWORD }}
+
+    # Build and push the Docker image
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        provenance: false
+        sbom: false
+        tags: uhub.service.ucloud.cn/unnoo/starry-www:latest
+
+    - name: deploy to HK server
+      uses: appleboy/ssh-action@v1.0.0
+      env:
+        UCLOUD_ACCOUNT: ${{ secrets.UCLOUD_ACCOUNT }}
+        UCLOUD_PASSWORD: ${{ secrets.UCLOUD_PASSWORD }}
+      with:
+        host: ${{ secrets.SSH_HOST_HK_PROXY }}
+        port: ${{ secrets.SSH_PORT_HK_PROXY }}
+        username: ${{ secrets.SSH_USERNAME_HK_PROXY }}
+        key: ${{ secrets.SSH_KEY }}
+        passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
+        envs: UCLOUD_ACCOUNT,UCLOUD_PASSWORD
+        script: |
+          cd starry.sg
+          echo $UCLOUD_PASSWORD | docker login --password-stdin --username $UCLOUD_ACCOUNT uhub.service.ucloud.cn
+          docker-compose pull  && docker-compose up -d --force-recreate
+
+  notify:
+    needs: build-and-push
+    uses: unnoo/actions-template/.github/workflows/notify.yaml@master
+    secrets: inherit
