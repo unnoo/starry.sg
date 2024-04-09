@@ -6,7 +6,7 @@ module.exports = {
     sidebarDepth: 0,
     nav: [
       { text: 'About Us', link: '/' },
-      { text: 'Privacy', link: '/en/privacy' },
+      { text: 'Privacy', link: '/privacy' },
     ],
     markdown: {
       lineNumbers: true,              // 让代码块显示行号
