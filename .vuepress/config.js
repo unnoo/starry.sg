@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Starry Tech Pte. Ltd.',
+  title: 'Starry Tech',
   head: [['link', { rel: 'icon', href: '/assets/img/logo.png' }]],
   themeConfig: {
     logo: '/assets/img/logo.png',
