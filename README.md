@@ -8,7 +8,8 @@ We are a small team that encourages each member to be self-driven and express th
 
 ## Products
 
-Coming soon.
+- Slax Note: [https://note.slax.com](https://note.slax.com)
+- Slax Reader: [Slax Reader Chrome Extension](https://chromewebstore.google.com/detail/slax-reader/gdnhaajlomjkhahnmiijphnodkcfikfd)
 
 ## Contact us
 
