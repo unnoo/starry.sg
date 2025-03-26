@@ -17,4 +17,4 @@ jobs:
         TARGET_REPO: unnoo/starry.sg
         TARGET_BRANCH: master
         BUILD_SCRIPT: npm install && npm run build
-        BUILD_DIR: src/.vuepress/dist
+        BUILD_DIR: .vuepress/dist
