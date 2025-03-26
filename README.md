@@ -1,6 +1,6 @@
 # About Starry
 
-## Starry
+## Company
 
 Starry is the name of our software studio, established in June 2023, with the hope of creating works that are both fun and loving.
 
