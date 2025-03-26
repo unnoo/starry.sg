@@ -15,6 +15,6 @@ We are a small team that encourages each member to be self-driven and express th
   - AI smart learning and social assistant, making knowledge accessible.
   - [https://r.slax.com](https://r.slax.com)
 
-## Contact us
+## Contact
 
 - Email: [support@starry.sg](mailto:support@starry.sg)
