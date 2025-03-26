@@ -8,8 +8,12 @@ We are a small team that encourages each member to be self-driven and express th
 
 ## Products
 
-- Slax Note: [https://note.slax.com](https://note.slax.com)
-- Slax Reader: [https://r.slax.com](https://r.slax.com)
+- Slax Note
+  - Your AI-powered voice notes. Turn voice into text in seconds.
+  - [https://note.slax.com](https://note.slax.com)
+- Slax Reader
+  - AI smart learning and social assistant, making knowledge accessible.
+  - [https://r.slax.com](https://r.slax.com)
 
 ## Contact us
 
