@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/',
   title: 'Starry Tech',
   head: [['link', { rel: 'icon', href: '/assets/img/logo.png' }]],
   themeConfig: {
