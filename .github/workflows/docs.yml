@@ -1,32 +1,20 @@
-name: Deploy VuePress to GitHub Pages
-
-on:
+name: Build and Deploy
+on: 
   push:
-    branches:
-      - master
-
+    branches: ["master"]
+  workflow_dispatch:
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@master
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Install VuePress + vue deps
-        run: |
-          npm install -g vue@2 vue-template-compiler vuepress@1
-
-      - name: Build VuePress site
-        run: vuepress build .vuepress
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .vuepress/dist
+    - name: vuepress-deploy
+      uses: jenkey2011/vuepress-deploy@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        TARGET_REPO: unnoo/starry.sg
+        TARGET_BRANCH: master
+        BUILD_SCRIPT: npm install && npm run build
+        BUILD_DIR: src/.vuepress/dist
