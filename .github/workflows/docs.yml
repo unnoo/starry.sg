@@ -3,7 +3,7 @@ name: Deploy VuePress to GitHub Pages
 on:
   push:
     branches:
-      - master  # 你现在用的是 master 分支
+      - master
 
 jobs:
   deploy:
@@ -18,11 +18,11 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install VuePress
+        run: npm install -g vuepress@1
 
       - name: Build VuePress site
-        run: npx vuepress build .vuepress
+        run: vuepress build .vuepress
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
