@@ -1,0 +1,19 @@
+{
+  "name": "starry",
+  "version": "0.0.1",
+  "description": "starry offical website",
+  "main": "index.js",
+  "authors": {
+    "name": "starry",
+    "email": "dev@starry.sg"
+  },
+  "repository": "unnoo/starry.sg",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
