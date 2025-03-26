@@ -3,7 +3,7 @@ name: docs
 on:
   # trigger deployment on every push to main branch
   push:
-    branches: [main]
+    branches: [master]
   # trigger deployment manually
   workflow_dispatch:
 
@@ -27,8 +27,6 @@ jobs:
         with:
           # choose node.js version to use
           node-version: 22
-          # cache deps for pnpm
-          cache: pnpm
 
       - name: Install deps
         run: pnpm install
