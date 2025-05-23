@@ -2,7 +2,7 @@
 
 ## Company
 
-Starry Pte. Ltd. was established in July 2022, with the hope of creating works that are both fun and loving.
+Starry Tech Pte. Ltd. was established in July 2022, with the hope of creating works that are both fun and loving.
 
 We are a small team that encourages each member to be self-driven and express themselves authentically. We only focus on creating products that we enjoy using.
 
